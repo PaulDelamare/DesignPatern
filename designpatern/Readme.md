@@ -12,12 +12,26 @@ git clone <votre_repo>
 cd designpatern
 npm install
 
-copy .env.exemple .env
-  # DATABASE_URL=postgresql://...
-  # API_KEY=clé partagée avec le front
+copy .env.example .env
+  # Modifier les variables listées ci-dessous
 
 npx prisma migrate deploy
 npm run dev
+```
+
+Variables à renseigner dans `.env` :
+
+```env
+# Chaîne de connexion PostgreSQL (adapter user/password/host)
+DATABASE_URL=postgresql://user:password@localhost:5432/security_app?schema=public
+
+# Paramètres HTTP internes
+PORT=3000
+API_URL=http://localhost:3000
+API_KEY=dev-shared-key
+
+# Secret signé JWT (remplacer par une valeur forte et unique)
+JWT_SECRET=s0m3-v3ry-l0ng-r@nd0m-valu3
 ```
 
 Les traces sont exportées dans `logs/request.log` (trafic HTTP), `logs/app-*.log` (activité applicative) et `logs/error-*.log` (erreurs). Pour repartir sur une base propre, vider le dossier `logs/`.

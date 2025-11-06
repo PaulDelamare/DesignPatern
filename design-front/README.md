@@ -12,8 +12,16 @@ npm install
 copy .env.example .env
 	# API_BASE_URL=http://localhost:3000
 	# API_KEY=clé fournie par l'API (x-api-key)
+```
 
+Puis compléter `.env` :
 
+```env
+# URL de base de l'API sécurisée (correspond à API_URL côté backend)
+API_BASE_URL=http://localhost:3000
+
+# Clé API transmise dans l'en-tête x-api-key
+API_KEY=dev-shared-key
 ```
 
 Le client tourne sur `http://localhost:5173`. Démarrez l’API `designpatern` (port `3000`) pour que les appels REST soient disponibles.
